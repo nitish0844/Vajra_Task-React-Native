@@ -1,97 +1,127 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# React Native Task – Dashboard & MultiColor Gauge
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Project Overview
 
-## Step 1: Start Metro
+This React Native project demonstrates a **dashboard app** featuring:  
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **Bottom Tab Navigation** with multiple screens.  
+- **Drawer Navigation** integrated with bottom tabs.  
+- **Custom MultiColor Gauge** component displaying proportional segments.  
+- **Coming Soon placeholders** for incomplete features.  
+- **Legends and Add buttons** in a card-style UI for gauges.  
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+The app is built using **React Native, React Navigation, and Tabler Icons**.
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## Features
+
+1. **Bottom Tabs**  
+   - Dashboard, Assests, Incidents, Requests, Users  
+   - Custom icons for each tab  
+
+2. **Drawer Navigation**  
+   - Single entry point to Bottom Tabs  
+   - Clicking a drawer item navigates to the corresponding bottom tab  
+
+3. **MultiColor Gauge Component**  
+   - Displays multiple segments on a single ring  
+   - Segment lengths are proportional to their values  
+   - Legends displayed as rows  
+   - Add New button for future actions  
+
+4. **Coming Soon Screen**  
+   - Placeholder for incomplete features  
+   - Icon and text centered with a clean UI  
+
+---
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/nitish0844/Vajra_Task-React-Native.git
+cd react-native-dashboard
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Run on Android
+npx react-native run-android
+
+# Run on iOS
+npx react-native run-ios
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## Usage
 
-### Android
+- **Navigate using Bottom Tabs** to switch between screens.  
+- **Open the Drawer** to jump directly to a specific tab.  
+- **Gauge Component** shows values as colored arcs with legends.  
 
-```sh
-# Using npm
-npm run android
+---
 
-# OR using Yarn
-yarn android
+## Navigation Diagram
+
+```
+Drawer
+ ├─ Dashboard  ──> BottomTabs ──> Dashboard Tab
+ ├─ Assests    ──> BottomTabs ──> Assests Tab
+ ├─ Incidents  ──> BottomTabs ──> Incidents Tab
+ ├─ Requests   ──> BottomTabs ──> Requests Tab
+ └─ Users      ──> BottomTabs ──> Users Tab
 ```
 
-### iOS
+**Explanation:**  
+- Drawer has a single main screen: `BottomTabs`.  
+- Each drawer item navigates to a specific tab inside `BottomTabs`.  
+- BottomTabs handles the actual screen content.  
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+---
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+## Code Structure
 
-```sh
-bundle install
+```
+/components
+  /home
+    /Incidents
+      MultiColorGauge.jsx
+/screens
+  /Home
+    HomeScreen.jsx
+  /CommingSoon
+    CommingZoon.jsx
+/navigation
+  BottomTabs.jsx
+  DrawerNavigator.jsx
+/constants
+  theme.js
+App.js
 ```
 
-Then, and every time you update your native dependencies, run:
+---
 
-```sh
-bundle exec pod install
-```
+## Questions / Self-Assessment
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+1. How does the MultiColorGauge calculate the segment angles for a given dataset?  
+2. How does the Drawer interact with Bottom Tabs to navigate to a specific tab?  
+3. How would you add animation to the gauge arcs when values update?  
+4. If you wanted to make the gauge interactive (tap a segment to see details), how would you implement it?  
+5. How can you improve performance if the dataset grows to 100+ segments?  
+6. How would you extend the “Coming Soon” screen with an animation or countdown?  
+7. How would you refactor the drawer and tabs to support dynamic data (new tabs added at runtime)?  
 
-```sh
-# Using npm
-npm run ios
+---
 
-# OR using Yarn
-yarn ios
-```
+## Future Improvements
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- Animated gauge arcs with smooth transitions.  
+- Interactive segment clicks to show details or actions.  
+- Real data fetching for each tab.  
+- Dark mode support.  
+- Unit tests for MultiColorGauge component.
