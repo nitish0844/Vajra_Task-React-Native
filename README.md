@@ -103,25 +103,3 @@ Drawer
   theme.js
 App.js
 ```
-
----
-
-## Questions / Self-Assessment
-
-1. How does the MultiColorGauge calculate the segment angles for a given dataset?  
-2. How does the Drawer interact with Bottom Tabs to navigate to a specific tab?  
-3. How would you add animation to the gauge arcs when values update?  
-4. If you wanted to make the gauge interactive (tap a segment to see details), how would you implement it?  
-5. How can you improve performance if the dataset grows to 100+ segments?  
-6. How would you extend the “Coming Soon” screen with an animation or countdown?  
-7. How would you refactor the drawer and tabs to support dynamic data (new tabs added at runtime)?  
-
----
-
-## Future Improvements
-
-- Animated gauge arcs with smooth transitions.  
-- Interactive segment clicks to show details or actions.  
-- Real data fetching for each tab.  
-- Dark mode support.  
-- Unit tests for MultiColorGauge component.
